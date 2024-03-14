@@ -14,19 +14,46 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: #ffffff;
+            background-color: #000000;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in-out;
         }
         h1 {
-            color: #333333;
+            color: #ffffff;
         }
         p {
-            color: #666666;
+            color: #ffffff;
             font-size: 18px;
         }
+        .btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -37,11 +64,12 @@
         }
     </style>
 </head>
-<body>
+<body style="background: url(&quot;assets/img/Light%20Blue%20Violet%20Modern%20Self%20Quote%20Affirmation%20Desktop%20Wallpaper12.svg&quot;) top / cover no-repeat, rgb(0,0,0);text-align: center;">
 
 <div class="container">
     <h1>Thank You for Registration</h1>
     <p>We have received your registration details. We will get back to you soon.</p>
+    <button onclick="window.open('https://chat.whatsapp.com/BkfpS1hyhYA5AWx97f0RZh', '_blank')" class="btn btn-primary">Join WhatsApp Group</button>
 </div>
 
 </body>
