@@ -125,7 +125,7 @@
                         Level-3 Coding Round - Difficult Level <br></p>
                 </ul>
             </div>
-            <form id="studentForm" style="text-align: left;"
+            <form id="studentForm" style="text-align: left;" onsubmit="return validateForm()"
                 action="https://docs.google.com/forms/d/e/1FAIpQLSdyRQyRODPPAK7bHi53ySqkgciEYOZYm9i-JglvUxXRsWosZg/formResponse"
                 method="post" target="hiddenConfirm" onsubmit="submitted=true">
                 <!-- Full Name -->
@@ -209,17 +209,20 @@
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                         <input type="number" id="transactionID" name="entry.1313152334" class="form-control" required
-                            placeholder="Enter transaction ID" style="color: black;" oninput="validateTransactionID(this)">
+                            placeholder="Enter transaction ID" style="color: black;">
                     </div>
                     <script>
-    function validateTransactionID(input) {
-        var transactionID = input.value.trim();
+    function validateForm() {
+        var transactionID = document.getElementById("transactionID").value.trim();
         
         if (transactionID.length !== 12 || isNaN(transactionID)) {
-            alert("Please enter a 12-digit UTR number.");
-            input.value = ""; // Clear the input field
-            input.focus(); // Focus back on the input field
+            alert("Please enter a valid 12-digit UTR number.");
+            return false; // Prevent form submission
         }
+        
+        // Other validations for other fields can be added here
+        
+        return true; // Allow form submission if all validations pass
     }
 </script>
 
