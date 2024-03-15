@@ -94,7 +94,7 @@
         <div style="color: white;">
             <h3 style="text-align: left;"><strong>Instructions</strong> </h3>
         </div>
-        <form id="studentForm" style="text-align: left;"
+        <form id="studentForm" style="text-align: left;" onsubmit="return validateForm()"
             action="https://docs.google.com/forms/d/e/1FAIpQLSdobdbbTJGLuRO61E-Dfgp6gKJZfAa058EhM8i1WsYwdwMumA/formResponse"
             method="post" target="hiddenConfirm" onsubmit="submitted=true">
             <!-- Full Name -->
@@ -174,9 +174,23 @@
                 <p style="color:white"><b>Please fill 12 digit UTR number</b></p>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
-                    <input type="text" id="transactionID" name="entry.1722436212" class="form-control"
+                    <input type="number" id="transactionID" name="entry.1722436212" class="form-control"
                         placeholder="Enter transaction ID" style="color: black;">
                 </div>
+                <script>
+    function validateForm() {
+        var transactionID = document.getElementById("transactionID").value.trim();
+        
+        if (transactionID.length !== 12 || isNaN(transactionID)) {
+            alert("Please enter a valid 12-digit UTR number.");
+            return false; // Prevent form submission
+        }
+        
+        // Other validations for other fields can be added here
+        
+        return true; // Allow form submission if all validations pass
+    }
+</script>
             </div>
     
             <!-- Submit Button -->
