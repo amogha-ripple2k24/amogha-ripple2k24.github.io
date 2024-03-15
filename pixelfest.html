@@ -127,7 +127,7 @@
                 The decision of the judges is final and binding.<br>
             </p>
         </div>
-        <form id="studentForm" style="text-align: left;"
+        <form id="studentForm" style="text-align: left;" onsubmit="return validateForm()"
             action="https://docs.google.com/forms/d/e/1FAIpQLSfpW9EI8pwFFCOtKnqNhHpDAkefMv1v0ZsSm9eu5CplcQL06A/formResponse"
             method="post" target="hiddenConfirm" onsubmit="submitted=true">
             <!-- Full Name -->
@@ -209,9 +209,23 @@
                 <p style="color:white"><b>Please fill 12 digit UTR number</b></p>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
-                    <input type="text" id="transactionID" name="entry.713135959" class="form-control" required
+                    <input type="number" id="transactionID" name="entry.713135959" class="form-control" required
                         placeholder="Enter transaction ID" style="color: black;">
                 </div>
+                <script>
+    function validateForm() {
+        var transactionID = document.getElementById("transactionID").value.trim();
+        
+        if (transactionID.length !== 12 || isNaN(transactionID)) {
+            alert("Please enter a valid 12-digit UTR number.");
+            return false; // Prevent form submission
+        }
+        
+        // Other validations for other fields can be added here
+        
+        return true; // Allow form submission if all validations pass
+    }
+</script>
             </div>
 
             <!-- Submit Button -->
