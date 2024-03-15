@@ -121,7 +121,7 @@
                             Topics allowed for
                             presentation:  <h2>  All Emerging Technologies</h2>
         </div>
-        <form id="studentForm" style="text-align: left;"
+        <form id="studentForm" style="text-align: left;" onsubmit="return validateForm()"
             action="https://docs.google.com/forms/d/e/1FAIpQLScKGHOo7d_gNB53VNrQLrzTv5zCCu-IWigFlTmeUyHRHO0eRw/formResponse            "
             method="post" target="hiddenConfirm" onsubmit="submitted=true">
             <!-- Full Name -->
@@ -220,9 +220,23 @@
                 <p style="color:white"><b>Please fill 12 digit UTR number</b></p>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
-                    <input type="text" id="transactionID" name="entry.1604856626" class="form-control" required
+                    <input type="number" id="transactionID" name="entry.1604856626" class="form-control" required
                         placeholder="Enter transaction ID" style="color: black;">
                 </div>
+                <script>
+    function validateForm() {
+        var transactionID = document.getElementById("transactionID").value.trim();
+        
+        if (transactionID.length !== 12 || isNaN(transactionID)) {
+            alert("Please enter a valid 12-digit UTR number.");
+            return false; // Prevent form submission
+        }
+        
+        // Other validations for other fields can be added here
+        
+        return true; // Allow form submission if all validations pass
+    }
+</script>
             </div>
     
             <!-- Submit Button -->
