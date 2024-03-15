@@ -208,9 +208,21 @@
                     <p style="color:white"><b>Please fill 12 digit UTR number</b></p>
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        <input type="text" id="transactionID" name="entry.1313152334" class="form-control" required
-                            placeholder="Enter transaction ID" style="color: black;">
+                        <input type="number" id="transactionID" name="entry.1313152334" class="form-control" required
+                            placeholder="Enter transaction ID" style="color: black;" oninput="validateTransactionID(this)">
                     </div>
+                    <script>
+    function validateTransactionID(input) {
+        var transactionID = input.value.trim();
+        
+        if (transactionID.length !== 12 || isNaN(transactionID)) {
+            alert("Please enter a 12-digit UTR number.");
+            input.value = ""; // Clear the input field
+            input.focus(); // Focus back on the input field
+        }
+    }
+</script>
+
                 </div>
 
                 <!-- Submit Button -->
