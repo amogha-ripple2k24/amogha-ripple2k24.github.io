@@ -101,7 +101,7 @@
                 The winner will be announced on March 27th before 2:00 PM and will receive the designated prize.<br>
             </p>
         </div>
-        <form id="studentForm" style="text-align: left;"
+        <form id="studentForm" style="text-align: left;" onsubmit="return validateForm()"
             action="https://docs.google.com/forms/d/e/1FAIpQLSfuOKIXI0Jt4T0jsRMKcgaP5dM8m-s2P5_8NrkHZkonwn7HXw/formResponse"
             method="post" target="hiddenConfirm" onsubmit="submitted=true">
             <!-- Full Name -->
@@ -181,9 +181,23 @@
                 <p style="color:white"><b>Please fill 12 digit UTR number</b></p>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
-                    <input type="text" id="transactionID" name="entry.957292781" class="form-control" required
+                    <input type="number" id="transactionID" name="entry.957292781" class="form-control" required
                         placeholder="Enter transaction ID" style="color: black;">
                 </div>
+                <script>
+    function validateForm() {
+        var transactionID = document.getElementById("transactionID").value.trim();
+        
+        if (transactionID.length !== 12 || isNaN(transactionID)) {
+            alert("Please enter a valid 12-digit UTR number.");
+            return false; // Prevent form submission
+        }
+        
+        // Other validations for other fields can be added here
+        
+        return true; // Allow form submission if all validations pass
+    }
+</script>
             </div>
     
             <!-- Submit Button -->
